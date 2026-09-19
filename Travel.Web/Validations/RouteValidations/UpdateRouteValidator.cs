@@ -1,0 +1,18 @@
+﻿using FluentValidation;
+using System.Linq;
+using Travel.Web.DTOs.RouteDtos;
+
+namespace Travel.Web.Validations.RouteValidations
+{
+    public class UpdateRouteValidator: AbstractValidator<UpdateRouteDto>
+    {
+        public UpdateRouteValidator()
+        {
+            RuleFor(x => x.City).NotEmpty().WithMessage("Şehir boş bırakılamaz");
+            RuleFor(x => x.Country).NotEmpty().WithMessage("Ülke boş bırakılamaz");
+            RuleFor(x => x.ImageUrl).NotEmpty().WithMessage("Görsel Url boş bırakılamaz");
+            RuleFor(x => x.Duration).NotEmpty().WithMessage("Tur Süresi boş bırakılamaz");
+            RuleFor(x => x.Price).NotEmpty().WithMessage("Fiyat boş bırakılamaz");
+        }
+    }
+}
